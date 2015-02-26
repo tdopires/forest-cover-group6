@@ -6,8 +6,8 @@ import pandas as pd
 from sklearn import ensemble
 
 if __name__ == "__main__":
-  loc_train = "data/train.csv"
-  loc_test = "data/test.csv"
+  loc_train = "../data/train.csv"
+  loc_test = "../data/test.csv"
   loc_submission = "/tmp/result.csv"
 
   df_train = pd.read_csv(loc_train)
