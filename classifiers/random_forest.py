@@ -20,7 +20,7 @@ if __name__ == "__main__":
   y = df_train['Cover_Type']
   test_ids = df_test['Id']
   
-  clf = ensemble.RandomForestClassifier(n_estimators = 500, n_jobs = -1)
+  clf = ensemble.RandomForestClassifier()
 
   clf.fit(X_train, y)
   
