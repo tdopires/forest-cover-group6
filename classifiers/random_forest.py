@@ -6,7 +6,7 @@ import os, datetime
 import pandas as pd
 from sklearn import ensemble
 
-data_version = 3
+data_version = 4
 
 if __name__ == "__main__":
   #loc_submission = os.path.normpath("C:/Users/Maria Matthes/Documents/GitHub/forest-cover-group6/data/result.csv")

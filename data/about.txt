@@ -1,4 +1,4 @@
-1 - No changes on the dataset
-2 - Normalised data (without excluding attributes)
-3 - Normalised data plot hypothesis
-4 - Normalised data entro hypothesis
+1 - No changes on the dataset [RF: 0.72-0.75]
+2 - Normalised data without excluding attributes [RF: 0.71-0.72]
+3 - Normalised data plot hypothesis [RF: 0.72]
+4 - Normalised data entro hypothesis [RF 0.53]
