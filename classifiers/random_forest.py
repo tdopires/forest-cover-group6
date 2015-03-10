@@ -6,12 +6,12 @@ import datetime
 import pandas as pd
 from sklearn import ensemble
 
-data_version = 2
+data_version = 3
 
 if __name__ == "__main__":
   loc_train = "../data/train-" + str(data_version) + ".csv"
   loc_test = "../data/test-" + str(data_version) + ".csv"
-  loc_submission = "../data/result-tmp-" + datetime.datetime.now().strftime('%Y-%m-%d-%H:%M:%S') + ".csv"
+  loc_submission = "../data/result-data" + str(data_version) + "-" + datetime.datetime.now().strftime('%Y-%m-%d-%H:%M:%S') + ".csv"
 
   df_train = pd.read_csv(loc_train)
   df_test = pd.read_csv(loc_test)
