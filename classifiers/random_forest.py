@@ -2,14 +2,17 @@
 # It was found here, at this topic: http://bit.ly/1FwEoOF
 # To run it, use the command: python random_forest.py
 
-import os
+import os, datetime
 import pandas as pd
 from sklearn import ensemble
 
+data_version = 2
+
 if __name__ == "__main__":
-  loc_train = "../data/train.csv"
-  loc_test = "../data/test.csv"
-  loc_submission = os.path.normpath("C:/Users/Maria Matthes/Documents/GitHub/forest-cover-group6/data/result.csv")
+  #loc_submission = os.path.normpath("C:/Users/Maria Matthes/Documents/GitHub/forest-cover-group6/data/result.csv")
+  loc_train = "../data/train-" + str(data_version) + ".csv"
+  loc_test = "../data/test-" + str(data_version) + ".csv"
+  loc_submission = "../data/result-tmp-" + datetime.datetime.now().strftime('%Y-%m-%d-%H:%M:%S') + ".csv"
 
   df_train = pd.read_csv(loc_train)
   df_test = pd.read_csv(loc_test)
