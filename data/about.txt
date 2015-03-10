@@ -1,0 +1,4 @@
+1 - No changes on the dataset
+2 - Normalised data (without excluding attributes)
+3 - Normalised data plot hypothesis
+4 - Normalised data entro hypothesis
