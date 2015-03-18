@@ -1,33 +1,22 @@
-# This is just sample code we used to get started on the use of ScikitLearn
-# It was found here, at this topic: http://bit.ly/1FwEoOF
-# To run it, use the command: python random_forest.py
+from base_classifier import MLClassifier
 
-import os
-import pandas as pd
 from sklearn import multiclass
 from sklearn.svm import LinearSVC
 
-if __name__ == "__main__":
-  loc_train = "../data/train.csv"
-  loc_test = "../data/test.csv"
-  loc_submission = os.path.normpath("C:/Users/Maria Matthes/Documents/GitHub/forest-cover-group6/data/result.csv")
+class SVM(MLClassifier):
 
-  df_train = pd.read_csv(loc_train)
-  df_test = pd.read_csv(loc_test)
+  def __init__(self, train_file, test_file, output_folder):
+    MLClassifier.__init__(self, "svm", train_file, test_file, output_folder)
 
-  feature_cols = [col for col in df_train.columns if col not in ['Cover_Type','Id']]
+  def run(self):
+    (train_instances, train_classes, test_instances, test_ids) = self.parse_data()
 
-  X_train = df_train[feature_cols]
-  X_test = df_test[feature_cols]
-  y = df_train['Cover_Type']
-  test_ids = df_test['Id']
+    clf = multiclass.OneVsRestClassifier(LinearSVC())
+    clf.multilabel = True
 
-  clf = multiclass.OneVsRestClassifier(LinearSVC())
-  clf.multilabel = True
+    clf.fit(train_instances, train_classes)
 
-  clf.fit(X_train, y)
+    result_class_with_labels = clf.predict(test_instances)
 
-  with open(loc_submission, "wb") as outfile:
-    outfile.write("Id,Cover_Type\n")
-    for e, val in enumerate(list(clf.predict(X_test))):
-      outfile.write("%s,%s\n"%(test_ids[e],val))
+    self.output_result_to_file(test_ids, result_class_with_labels)
+
