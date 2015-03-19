@@ -3,3 +3,4 @@
 3 - Normalised data plot hypothesis [RF: 0.72]
 4 - Normalised data entro hypothesis [RF 0.53]
 5 - Normalised data with new entro and agreement [RF: 0.72, SVM: 0.38]
+6 - Normalised data with soiltype and wildernessarea in booleans [RF: 0.71]
